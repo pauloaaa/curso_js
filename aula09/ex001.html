@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.: Aula 09 - Ex001 :.</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+    <div id="ex1">Exemplo pelo getElementById</div>
+    <div id="ex2">Exemplo pelo querySelector</div>
+    <script>
+        let p1 = document.getElementsByTagName('p')[0];
+        document.write(p1.innerHTML);
+        p1.style.color = 'yellow';
+        let d1 = document.getElementById('ex1');
+        d1.style.background = 'green';
+        var d2 = document.querySelector('div#ex2');
+        d2.style.background = 'blue';
+    </script>
+</body>
+</html>
