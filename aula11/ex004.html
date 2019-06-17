@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.: Aula 11 - Ex004 :.</title>
+</head>
+<body>
+    <h1>Nacionalidades</h1>
+    Qual seu pais: <input type="text" name="nac" id="nac">
+    <input type="button" value="Verificar" onclick="nacionalidade()">
+    <div id="res">
+
+    </div>
+    <script>
+        function nacionalidade() {
+            let nac = document.querySelector('input#nac');
+            let res = document.querySelector('div#res');           
+
+            if (nac.value.toUpperCase() === 'Brasil'.toUpperCase()) {
+                res.innerHTML = "Você é brasileiro";
+            } else {
+                res.innerHTML = "Você é estrangeiro";
+            }            
+        }
+    </script>
+</body>
+</html>
