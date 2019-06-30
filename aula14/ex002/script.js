@@ -2,38 +2,33 @@ function contar() {
     let txtInicio = document.querySelector("input#inicio");
     let txtFim = document.querySelector("input#fim");
     let txtPasso = document.querySelector("input#passo");
-    let p = document.querySelector("p#contador");
     let res = document.querySelector("div#res");
-    let img = document.createElement('img');
-    let imgBandeira = document.createElement('img');
 
-    img.setAttribute('width','40px');
-    img.setAttribute('height','30px');
-    img.src = 'mao.jpg';
+    if (txtInicio.value.length == 0 || txtFim.value.length == 0) {
+        res.innerHTML = "Impossível contar.";
+    } else {
+        res.innerHTML = "Contando: <br>";
+        
+        let inicio = Number(txtInicio.value);
+        let fim = Number(txtFim.value);
+        let passo = Number(txtPasso.value);
+        if (passo <= 0) {
+            alert("[ERRO] Passo inválido, considerando PASSO 1.");
+            passo = 1;
+        }    
+        
+        if (inicio < fim) {
+            for (let index = 1; index <= fim; index += passo){
+                res.innerHTML += ` ${index} \u{1F449}`;
+1               
+            }
+        } else {
+            for (let index = inicio; index >= fim; index -= passo) {
+                res.innerHTML += ` ${index} \u{1F449} `;                
+            }
+        }
+        res.innerHTML += `\u{1F3C1}`;
 
-    imgBandeira.setAttribute('width','40px');
-    imgBandeira.setAttribute('height','30px');
-    imgBandeira.src = 'bandeira.png';
-
-    let inicio = Number(txtInicio.value);
-    let fim = Number(txtFim.value);
-    let passo = Number(txtPasso.value);
-
-    if (inicio == 0 || fim == 0 || passo == 0 || inicio == undefined || fim == undefined || passo == undefined) {
-        alert("[ERRO] Não pode valor 0 ou nulo.");
-        return;        
-    }
-    
-    p.innerHTML = "";
-    
-    while (inicio < fim) {
-        p.appendChild(img);
-        p.innerHTML += `${inicio}`;
-        inicio = inicio + passo;
-    }
-    p.appendChild(img);
-    p.appendChild(imgBandeira);
-
-    
+    }   
     
 }
