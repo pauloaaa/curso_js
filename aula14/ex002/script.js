@@ -19,8 +19,7 @@ function contar() {
         
         if (inicio < fim) {
             for (let index = 1; index <= fim; index += passo){
-                res.innerHTML += ` ${index} \u{1F449}`;
-1               
+                res.innerHTML += ` ${index} \u{1F449}`;1               
             }
         } else {
             for (let index = inicio; index >= fim; index -= passo) {
