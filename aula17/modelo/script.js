@@ -3,8 +3,7 @@ var res = document.querySelector('p#res');
 
 function adicionar(){
 
-    res.innerHTML = "";
-    
+    res.innerHTML = "";    
 
     let txtNum = document.querySelector('input#num');
     if (txtNum.value.length == 0) {
@@ -41,9 +40,38 @@ function adicionar(){
 
 function finalizar() {     
     let soma = 0;
-    for (let index in slc) {       
-        soma += slc[index];       
+    let count = 0;
+    let maior = 0;
+    let menor = 0;
+    let media = 0;
+
+    if (slc.length == 0) {
+        alert('Adicione valores antes de finalizar.');
+        return;
     }
-    res.innerHTML = `A soma é: ${soma}`;
+
+    for (let index in slc) {       
+        soma += slc[index];
+        count++;
+        
+        if (maior < slc[index]) {
+            maior = slc[index];            
+        }
+
+        if (menor > slc[index] || menor == 0) {
+            menor = slc[index];
+        }
+
+        if (count == slc.length) {
+            media = soma / count;
+        }
+    }
+
+    
+    res.innerHTML = `Ao todo, temos ${count} números cadastrados. <br>`;
+    res.innerHTML += `O maior número cadastrado foi ${maior}. <br>`;
+    res.innerHTML += `O menor número cadastrado foi ${menor}. <br>`;
+    res.innerHTML += `Somando todos os valores, temos: ${soma}. <br>`;
+    res.innerHTML += `A média dos valores digitados é: ${media}. <br>`;
 
 }
