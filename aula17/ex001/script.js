@@ -33,14 +33,16 @@ function adicionar(){
 
     let slcNum = document.querySelector('select#slcNum');
     slcNum.appendChild(opt);
+    txtNum.value = '';
+    txtNum.focus();
 
 }
 
 function finalizar() {     
     let soma = 0;
-    let count = 0;
-    let maior = 0;
-    let menor = 0;
+    let count = slc.length;
+    let maior = slc[0];
+    let menor = slc[0];
     let media = 0;
 
     if (slc.length == 0) {
@@ -49,27 +51,22 @@ function finalizar() {
     }
 
     for (let index in slc) {       
-        soma += slc[index];
-        count++;
+        soma += slc[index];        
         
-        if (maior < slc[index]) {
+        if (slc[index] > maior) {
             maior = slc[index];            
         }
 
-        if (menor > slc[index] || menor == 0) {
+        if (slc[index] < menor) {
             menor = slc[index];
-        }
-
-        if (count == slc.length) {
-            media = soma / count;
-        }
+        }       
     }
-
+    media = soma / count;
     
-    res.innerHTML = `Ao todo, temos ${count} números cadastrados. <br>`;
-    res.innerHTML += `O maior número cadastrado foi ${maior}. <br>`;
-    res.innerHTML += `O menor número cadastrado foi ${menor}. <br>`;
-    res.innerHTML += `Somando todos os valores, temos: ${soma}. <br>`;
-    res.innerHTML += `A média dos valores digitados é: ${media}. <br>`;
+    res.innerHTML = `<p>Ao todo, temos ${count} números cadastrados. </p>`;
+    res.innerHTML += `<p>O maior número cadastrado foi ${maior}. </p>`;
+    res.innerHTML += `<p>O menor número cadastrado foi ${menor}. </p>`;
+    res.innerHTML += `<p>Somando todos os valores, temos: ${soma}. </p>`;
+    res.innerHTML += `<p>A média dos valores digitados é: ${media}. </p>`;
 
 }
