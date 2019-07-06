@@ -23,13 +23,11 @@ function adicionar(){
 
     if (slc.length == 0) {
         slc.push(num);
-    } else {
-        for (let index in slc) {
-            if (slc[index] == num) {
-                alert(`Número ${num} já foi adicionado.`);
-                return;
-            } 
-        }
+    } else {        
+        if (slc.indexOf(num) != -1) {
+            alert(`Número ${num} já foi adicionado.`);
+            return;
+        }        
         slc.push(num);
     }    
 
